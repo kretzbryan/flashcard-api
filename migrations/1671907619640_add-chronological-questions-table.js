@@ -4,7 +4,7 @@ exports.shorthands = undefined;
 
 exports.up = (pgm) => {
 	pgm.sql(`
-    CREATE TABLE multichoice_questions (
+    CREATE TABLE chronological_questions (
       id SERIAL PRIMARY KEY,
       deck_id INTEGER NOT NULL REFERENCES decks(id),
       choices jsonb,
@@ -20,6 +20,6 @@ exports.up = (pgm) => {
 
 exports.down = (pgm) => {
 	pgm.sql(`
-    DROP TABLE multichoice_questions;
+    DROP TABLE chronological_questions;
   `);
 };

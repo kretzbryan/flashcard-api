@@ -4,12 +4,11 @@ exports.shorthands = undefined;
 
 exports.up = (pgm) => {
 	pgm.sql(`
-    CREATE TABLE multichoice_questions (
+    CREATE TABLE simple_answer_questions (
       id SERIAL PRIMARY KEY,
       deck_id INTEGER NOT NULL REFERENCES decks(id),
-      choices jsonb,
       question_text VARCHAR(500) NOT NULL,
-      answer VARCHAR(240) NOT NULL,
+      answer BOOLEAN NOT NULL,
       associated_image VARCHAR(240),
       answer_description VARCHAR(700),
       created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
@@ -20,6 +19,6 @@ exports.up = (pgm) => {
 
 exports.down = (pgm) => {
 	pgm.sql(`
-    DROP TABLE multichoice_questions;
+    DROP TABLE simple_answer_questions;
   `);
 };

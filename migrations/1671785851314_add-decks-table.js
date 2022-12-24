@@ -19,5 +19,5 @@ exports.up = (pgm) => {
 };
 
 exports.down = (pgm) => {
-	pgm.sql(`DROP TABLE decks`);
+	pgm.sql(`DROP TABLE decks;`);
 };
