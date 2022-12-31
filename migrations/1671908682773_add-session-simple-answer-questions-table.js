@@ -11,7 +11,7 @@ exports.up = (pgm) => {
       simple_answer_question_id INTEGER NOT NULL REFERENCES simple_answer_questions(id),
       answered_correctly BOOLEAN,
       created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-      updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+      updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
     );
   `);
 };

@@ -19,6 +19,6 @@ exports.up = (pgm) => {
 
 exports.down = (pgm) => {
 	pgm.sql(`
-    DROP TABLE simple_answer_questions;
+    DROP TABLE IF EXISTS simple_answer_questions;
   `);
 };

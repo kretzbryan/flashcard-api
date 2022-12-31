@@ -12,5 +12,5 @@ exports.up = (pgm) => {
 };
 
 exports.down = (pgm) => {
-	pgm.sql(`DROP TABLE subjects;`);
+	pgm.sql(`DROP TABLE IF EXISTS subjects;`);
 };

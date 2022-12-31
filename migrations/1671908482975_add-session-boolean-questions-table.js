@@ -11,7 +11,7 @@ exports.up = (pgm) => {
       boolean_question_id INTEGER NOT NULL REFERENCES boolean_questions(id),
       answered_correctly BOOLEAN,
       created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-      updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+      updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
     );
   `);
 };

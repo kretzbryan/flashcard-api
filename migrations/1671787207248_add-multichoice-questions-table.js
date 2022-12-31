@@ -7,7 +7,7 @@ exports.up = (pgm) => {
     CREATE TABLE multichoice_questions (
       id SERIAL PRIMARY KEY,
       deck_id INTEGER NOT NULL REFERENCES decks(id),
-      choices jsonb,
+      choices text[],
       question_text VARCHAR(500) NOT NULL,
       answer VARCHAR(240) NOT NULL,
       associated_image VARCHAR(240),
@@ -20,6 +20,6 @@ exports.up = (pgm) => {
 
 exports.down = (pgm) => {
 	pgm.sql(`
-    DROP TABLE multichoice_questions;
+    DROP TABLE IF EXISTS multichoice_questions;
   `);
 };

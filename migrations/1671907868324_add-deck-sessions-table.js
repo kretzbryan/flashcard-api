@@ -12,13 +12,13 @@ exports.up = (pgm) => {
       closed BOOLEAN NOT NULL,
       started_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
       ended_at TIMESTAMP WITH TIME ZONE,
-      updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+      updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
     );
   `);
 };
 
 exports.down = (pgm) => {
 	pgm.sql(`
-    DROP TABLE deck_sessions;
+    DROP TABLE IF EXISTS deck_sessions;
   `);
 };

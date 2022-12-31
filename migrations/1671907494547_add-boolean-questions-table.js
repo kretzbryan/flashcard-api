@@ -19,6 +19,6 @@ exports.up = (pgm) => {
 
 exports.down = (pgm) => {
 	pgm.sql(`
-    DROP TABLE boolean_questions;
+    DROP TABLE IF EXISTS boolean_questions;
   `);
 };

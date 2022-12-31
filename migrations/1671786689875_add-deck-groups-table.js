@@ -17,5 +17,5 @@ exports.up = (pgm) => {
 };
 
 exports.down = (pgm) => {
-	pgm.sql(`DROP TABLE deck_groups;`);
+	pgm.sql(`DROP TABLE IF EXISTS deck_groups;`);
 };
