@@ -7,13 +7,13 @@ const router = express.Router();
 router.get('/boolean-questions/all', async (req, res) => {
 	// Run sql query
 	const questions = await MultichoiceQuestion.find();
-	res.send(questions);
+	res.json(questions);
 });
 
 router.delete('/boolean-questions/all', async (req, res) => {
 	// Run sql query
 	const questions = await MultichoiceQuestion.deleteAll();
-	res.send(questions);
+	res.json(questions);
 });
 
 module.exports = router;

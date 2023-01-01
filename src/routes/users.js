@@ -6,7 +6,7 @@ router.get('/users', async (req, res) => {
 	// Run sql query
 	console.log('received request');
 	const users = await User.find();
-	res.send(users);
+	res.json(users);
 });
 
 router.get('/users/:id', async (req, res) => {
@@ -15,9 +15,9 @@ router.get('/users/:id', async (req, res) => {
 	const user = await User.findById(id);
 
 	if (user) {
-		res.send(user);
+		res.json(user);
 	} else {
-		res.sendStatus(404);
+		res.jsonStatus(404);
 	}
 });
 
@@ -26,7 +26,7 @@ router.post('/users', async (req, res) => {
 		const newUser = await User.insert(req.body).catch((err) => {
 			console.error(err);
 		});
-		res.send(newUser);
+		res.json(newUser);
 	} catch (error) {
 		console.err(error);
 	}
@@ -40,7 +40,7 @@ router.post('/users/login', async (req, res) => {
 				console.error(err);
 			}
 		);
-		res.send(foundUser);
+		res.json(foundUser);
 	} catch (error) {
 		console.err(error);
 	}

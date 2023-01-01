@@ -12,11 +12,16 @@ class Deck {
 	}
 
 	static async findById(id) {
-		const { rows } = await pool.query('SELECT * FROM decks WHERE id = $1', [
-			id,
-		]);
+		const { rows } = await pool.query(
+			`
+			SELECT  *, 'multichoice' AS type
+			FROM multichoice_questions 
+			WHERE multichoice_questions.deck_id = $1;
+		`,
+			[id]
+		);
 
-		return toCamelCase(rows)[0];
+		return toCamelCase(rows);
 	}
 
 	static async insert({ userID, name }) {
@@ -31,6 +36,8 @@ class Deck {
 		);
 		return rows[0];
 	}
+
+	static async delete(id) {}
 
 	static async delete(id) {}
 	static async deleteAll() {

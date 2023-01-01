@@ -9,7 +9,7 @@ router.get('/deck-sessions', async (req, res) => {
 	// Run sql query
 	console.log('received request');
 	const decks = await DeckSession.find();
-	res.send(decks);
+	res.json(decks);
 });
 
 module.exports = router;
